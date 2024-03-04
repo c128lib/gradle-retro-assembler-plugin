@@ -2,4 +2,4 @@ plugins {
   id("rbt.domain")
 }
 
-group = "com.github.c64lib.retro-assembler"
+group = "com.github.c128lib.retro-assembler"

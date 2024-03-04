@@ -9,6 +9,11 @@ include(":shared:binary-utils")
 include(":shared:processor")
 include(":shared:testutils")
 
+include(":compilers:glassz80")
+include(":compilers:glassz80:adapters:in:gradle")
+include(":compilers:glassz80:adapters:out:gradle")
+include(":compilers:glassz80:adapters:out:filedownload")
+
 include(":compilers:kickass")
 include(":compilers:kickass:adapters:in:gradle")
 include(":compilers:kickass:adapters:out:gradle")
@@ -17,8 +22,8 @@ include(":compilers:kickass:adapters:out:filedownload")
 include(":emulators:vice")
 include(":emulators:vice:adapters:out:gradle")
 
-include(":testing:64spec")
-include(":testing:64spec:adapters:in:gradle")
+include(":testing:128spec")
+include(":testing:128spec:adapters:in:gradle")
 
 include(":dependencies")
 include(":dependencies:adapters:in:gradle")

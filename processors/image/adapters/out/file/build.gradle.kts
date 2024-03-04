@@ -2,7 +2,7 @@ plugins {
   id("rbt.adapter.outbound.gradle")
 }
 
-group = "com.github.c64lib.retro-assembler.processors.image"
+group = "com.github.c128lib.retro-assembler.processors.image"
 
 dependencies {
     implementation(project(":processors:image"))

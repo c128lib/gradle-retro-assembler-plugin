@@ -2,7 +2,7 @@ plugins {
   id("rbt.adapter.outbound.gradle")
 }
 
-group = "com.github.c64lib.retro-assembler.compilers.kickass.out"
+group = "com.github.c128lib.retro-assembler.compilers.kickass.out"
 
 dependencies {
   implementation(project(":compilers:kickass"))

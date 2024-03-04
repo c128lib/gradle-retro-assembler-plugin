@@ -2,7 +2,7 @@ plugins {
   id("rbt.adapter.outbound.gradle")
 }
 
-group = "com.github.c64lib.retro-assembler.emulators.vice"
+group = "com.github.c128lib.retro-assembler.emulators.vice"
 
 dependencies {
   implementation(project(":emulators:vice"))

@@ -13,7 +13,7 @@ plugins {
     id("com.gradle.plugin-publish") version "0.14.0"
 }
 
-group = "com.github.c64lib.retro-assembler"
+group = "com.github.c128lib.retro-assembler"
 
 configurations {
   // Create a new configuration that extends from 'implementation'
@@ -54,19 +54,19 @@ project(":infra:gradle").tasks.jar { dependsOn(tasks.named("copySubProjectClasse
 tasks.named("copySubProjectClasses") { mustRunAfter(project(":infra:gradle").tasks.classes) }
 
 pluginBundle {
-    website = "https://c64lib.github.io/gradle-retro-assembler-plugin/"
-    vcsUrl = "https://github.com/c64lib/gradle-retro-assembler-plugin"
+    website = "https://c128lib.github.io/gradle-retro-assembler-plugin/"
+    vcsUrl = "https://github.com/c128lib/gradle-retro-assembler-plugin"
     tags = listOf("assembly", "65xx", "mos6502", "mos6510")
 }
 
 gradlePlugin {
     plugins {
         create("simplePlugin") {
-            id = "com.github.c64lib.retro-assembler"
+            id = "com.github.c128lib.retro-assembler"
             displayName = "Retro Assembler Plugin"
             description =
                 "Embeds various 6502 assemblers and provides basic functionality to have builds for your beloved C64"
-            implementationClass = "com.github.c64lib.gradle.RetroAssemblerPlugin"
+            implementationClass = "com.github.c128lib.gradle.RetroAssemblerPlugin"
         }
     }
 }
@@ -91,8 +91,8 @@ dependencies {
     compileOnly(project(":emulators:vice"))
     compileOnly(project(":emulators:vice:adapters:out:gradle"))
 
-    compileOnly(project(":testing:64spec"))
-    compileOnly(project(":testing:64spec:adapters:in:gradle"))
+    compileOnly(project(":testing:128spec"))
+    compileOnly(project(":testing:128spec:adapters:in:gradle"))
 
     compileOnly(project(":dependencies"))
     compileOnly(project(":dependencies:adapters:in:gradle"))

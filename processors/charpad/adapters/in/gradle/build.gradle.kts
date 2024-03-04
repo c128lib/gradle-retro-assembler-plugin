@@ -2,7 +2,7 @@ plugins {
   id("rbt.adapter.inbound.gradle")
 }
 
-group = "com.github.c64lib.retro-assembler.processors.charpad.adapters.in"
+group = "com.github.c128lib.retro-assembler.processors.charpad.adapters.in"
 
 dependencies {
   implementation(project(":processors:charpad"))

@@ -2,4 +2,4 @@ plugins {
   id("rbt.kotlin")
 }
 
-group = "com.github.c64lib.retro-assembler.shared"
+group = "com.github.c128lib.retro-assembler.shared"

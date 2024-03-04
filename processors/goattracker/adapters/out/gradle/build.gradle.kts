@@ -1,6 +1,6 @@
 plugins { id("rbt.adapter.outbound.gradle") }
 
-group = "com.github.c64lib.retro-assembler.processors.goattracker.out"
+group = "com.github.c128lib.retro-assembler.processors.goattracker.out"
 
 dependencies {
     implementation(project(":processors:goattracker"))

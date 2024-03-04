@@ -10,7 +10,7 @@ plugins {
 
 allprojects {
 
-    group = "com.github.c64lib"
+    group = "com.github.c128lib"
     version = "1.7.6"
 
     if (project.hasProperty(tagPropertyName)) {

@@ -2,7 +2,7 @@ plugins {
   id("rbt.adapter.outbound.gradle")
 }
 
-group = "com.github.c64lib.retro-assembler.dependencies.out"
+group = "com.github.c128lib.retro-assembler.dependencies.out"
 
 dependencies {
   implementation(project(":dependencies"))

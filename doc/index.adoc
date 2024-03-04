@@ -19,11 +19,11 @@ It supports Java ecosystem out of the box but is also extensible via plugin syst
 
 This plugin supports Commodore 64 output and KickAssembler only, but there are plans to extend it further.
 
-This is an open source project hosted on https://github.com/c64lib/gradle-retro-assembler-plugin[GitHub].
-In case of any problems when working with the plugin, don't hesitate to create an https://github.com/c64lib/gradle-retro-assembler-plugin/issues[issue].
+This is an open source project hosted on https://github.com/c128lib/gradle-retro-assembler-plugin[GitHub].
+In case of any problems when working with the plugin, don't hesitate to create an https://github.com/c128lib/gradle-retro-assembler-plugin/issues[issue].
 Feel free to fork and create pull requests.
 
-The roadmap for the project is fairly dynamic, but it can be accessed and reviewed at any moment at https://github.com/orgs/c64lib/projects/3/views/6[this place].
+The roadmap for the project is fairly dynamic, but it can be accessed and reviewed at any moment at https://github.com/orgs/c128lib/projects/3/views/6[this place].
 
 == Getting started
 
@@ -43,7 +43,7 @@ gradlew build
 You can use the following projects for reference:
 
 * https://github.com/maciejmalecki/trex64[]
-* https://github.com/c64lib/ctm-viewer[]
+* https://github.com/c128lib/ctm-viewer[]
 
 If the project does not use Gradle Wrapper, you have to install Gradle by yourself.
 It is pretty straightforward, you'll find instructions here: https://gradle.org/install/[].
@@ -97,24 +97,24 @@ Fill it with following content:
 [source,groovy,subs="attributes"]
 ----
 plugins {
-    id "com.github.c64lib.retro-assembler" version "{actualPluginVersion}"
+    id "com.github.c128lib.retro-assembler" version "{actualPluginVersion}"
 }
 
 retroProject {
     dialect = "KickAssembler"
     dialectVersion = "{actualKickAssVersion}"
-    libDirs = [".ra/deps/c64lib"]
+    libDirs = [".ra/deps/c128lib"]
     srcDirs = ["lib", "spec"]
 
     // dependencies
-    libFromGitHub "c64lib/64spec", "0.7.0pr"
+    libFromGitHub "c128lib/64spec", "0.7.0pr"
 }
 ----
 
 You can of course adjust all values inside `retroProject` to your needs.
 
 As you can see you don't have to download Retro Assembler Plugin, it will be automatically downloaded and used once `gradle` command is run.
-The plugin is published into Plugins portal: https://plugins.gradle.org/plugin/com.github.c64lib.retro-assembler[https://plugins.gradle.org] and can be used as any other Gradle plugin.
+The plugin is published into Plugins portal: https://plugins.gradle.org/plugin/com.github.c128lib.retro-assembler[https://plugins.gradle.org] and can be used as any other Gradle plugin.
 
 === Launching your build
 There are two core tasks that can be used from command line:
@@ -178,7 +178,7 @@ retroProject {
 The minimal amount of information you have to provide is:
 
 dialect:: A type of assembler that you want to use (currently only `KickAssembler` is supported).
-dialectVersion:: A version of the selected assembler you want to use. For KickAssembler, see https://github.com/c64lib/asm-ka/releases for list of all available versions.
+dialectVersion:: A version of the selected assembler you want to use. For KickAssembler, see https://github.com/c128lib/asm-ka/releases for list of all available versions.
 
 In this setup, the tool will assemble all files with `asm` extension located in project directory and all subdirectories.
 See <<Customizing your build>> section to see how to modify this default behavior.
@@ -310,19 +310,19 @@ This can be easily achieved with `libDirs` parameter.
 
 `libDirs`:: Provides array of directory locations where your libraries are downloaded; default value: `[]`.
 
-If you want to use `c64lib` set of ASM libraries and also use <<Charpad exports>> and <<Spritepad exports>> configured to use `build` directory as a output, use following snippet:
+If you want to use `c128lib` set of ASM libraries and also use <<Charpad exports>> and <<Spritepad exports>> configured to use `build` directory as a output, use following snippet:
 
 [source,groovy,subs="attributes"]
 ----
 retroProject {
     dialect = "KickAssembler"
     dialectVersion = "{actualKickAssVersion}"
-    libDirs = [".ra/deps/c64lib", "build/charpad", "build/spritepad"]
+    libDirs = [".ra/deps/c128lib", "build/charpad", "build/spritepad"]
 
-    libFromGitHub("c64lib/common", "develop")
-    libFromGitHub("c64lib/chipset", "develop")
-    libFromGitHub("c64lib/text", "develop")
-    libFromGitHub("c64lib/copper64", "develop")
+    libFromGitHub("c128lib/common", "develop")
+    libFromGitHub("c128lib/chipset", "develop")
+    libFromGitHub("c128lib/text", "develop")
+    libFromGitHub("c128lib/copper64", "develop")
 }
 ----
 
@@ -351,7 +351,7 @@ You just need to specify these dependencies inside your `retroProject` section:
 [source,groovy]
 ----
 retroProject {
-    libFromGitHub "c64lib/common", "1.0.0"
+    libFromGitHub "c128lib/common", "1.0.0"
 }
 ----
 
@@ -366,7 +366,7 @@ Also the 64spec library must be added to dependencies, as any other KickAssemble
 [source,groovy]
 ----
 retroProject {
-    libFromGitHub "c64lib/64spec", "0.7.0pr"
+    libFromGitHub "c128lib/64spec", "0.7.0pr"
 }
 ----
 
@@ -654,7 +654,7 @@ Meta data are exported in form of Assembly labels.
 meta {
   dialect = "KickAssembler"
   includeMode = true
-  namespace = "c64lib"
+  namespace = "c128lib"
   prefix = "logo_"
   output = file("charset/game-logo-meta.asm")
 }
@@ -670,7 +670,7 @@ The example from above results in generated the following meta data source file:
   DO NOT MODIFY THIS FILE!
 */
 
-.filenamespace c64lib
+.filenamespace c128lib
 
 .label logo_backgroundColour0 = 0
 .label logo_backgroundColour1 = 0
@@ -1011,7 +1011,7 @@ jobs:
         - master
         - develop
     docker:
-      - image: maciejmalecki/c64libci:{actualDockerVersion}
+      - image: maciejmalecki/c128libci:{actualDockerVersion}
 
     working_directory: ~/repo
 
@@ -1032,7 +1032,7 @@ You still can modify few things in this file:
 
 You have to ensure, that `gradlew` launcher has executable rights on Linux machines, otherwise `run` command will fail.
 
-One thing you shouldn't modify is `docker/image` - the `maciejmalecki/c64libci:{actualDockerVersion}` is a dedicated image based on Debian Buster that has Java 11 and Vice 3.x preinstalled and is needed to run both KickAssembler and 64spec tests.
+One thing you shouldn't modify is `docker/image` - the `maciejmalecki/c128libci:{actualDockerVersion}` is a dedicated image based on Debian Buster that has Java 11 and Vice 3.x preinstalled and is needed to run both KickAssembler and 64spec tests.
 Since version `0.1.5` also Goattracker and Exomizer are available on the image.
 
 === TravisCI
